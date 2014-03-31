@@ -1,0 +1,6 @@
+name: fewd.in
+markdown: redcarpet
+pygments: true
+exclude: ['node_modules','.git','_site']
+source: src
+permalink: /:title/

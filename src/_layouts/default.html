@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name='viewport' content="width=device-width" initial-scale="1">
+  <title>Intro to Rails</title>
+  <link rel='stylesheet' href='/css/normalize.css'>
+  <link rel='stylesheet' href='/css/style.css'>
+  <script type="text/javascript" src="//use.typekit.net/gci1bco.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+</head>
+<body>
+  <header class='sidebar'>
+    <nav role='navigation'>
+      <a href="/" class='logo'>Intro to Rails</a>
+      <a href='#' class='menu js-togglr'>&equiv;</a> 
+      <small>March 2014</small>
+      <ul class='site__nav js-nav'>
+        <li {% if page.url == "/contact/index.html" %} class="active" {% endif %}><a href="/contact/" data-flip='Contact'>Contact</a></li>  
+        <li {% if page.url == "/resources/index.html" %} class="active" {% endif %}><a href="/resources/" data-flip='Resources'>Resources</a></li>
+      </ul>
+    </nav>  
+    </header>
+    <section class='site__content'>
+      {{ content }}
+    </section>
+    <script type='text/javascript'>
+      var togglr = document.querySelector('.js-togglr')
+      ,   toggli = document.querySelector('.js-nav')
+      ,   classi = toggli.classList
+      togglr.addEventListener('click', function( e ){
+	  e.preventDefault();
+	  classi.contains('is-visible') ? classi.remove('is-visible') : classi.add('is-visible');
+      });
+     
+    </script>
+    <script type='text/javascript' src='/js/instantclick.min.js' data-no-instant></script>
+    <script type='text/javascript' data-no-instant> 
+      InstantClick.init('mousedown');
+      InstantClick.on('change', function(e){
+        console.log(e);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+---
+layout: default
+---
+
+ <div class='js-section' id='schedule'>
+    <div class='max-width'>  
+      <h1>Welcome!</h1>
+      {% for post in site.posts %}
+
+      {% unless post.exclude %}
+      {% assign loopindex = forloop.index | modulo: 2 %}
+      {% if loopindex == 1 %}
+	<div class='section__title lesson__title'>
+        <time>{{ post.date | date: "%B %-d, %Y" }}</time> 
+	</div>
+      {% endif %}
+      <div class='lesson'>
+          <h2>{{ post.title }} </h2>
+        <ul>
+            <li><a href="{{ post.url }}" data-no-instant>Slides</a></li>
+            {% if post.handout %}<li><a href="{{ post.handout }}" data-no-instant>Handout</a></li>{% endif %}
+            {% if post.starter_code %}<li><a href="{{ post.starter_code }}" data-no-instant>Starter Code</a></li>{% endif %}
+            {% if post.solution %}<li><a href="{{ post.solution }}" data-no-instant >Solution</a></li>{% endif %}
+            {% if post.homework %}<li><a href="{{ post.homework }}" data-no-instant>Homework</a></li>{% endif %}
+        </ul>
+      </div>
+      {% endunless %}
+
+      {% endfor %}
+    </div>
+  </div><!--//schedule-->
